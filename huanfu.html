@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style: none;
+        float: left;
+        width: 500px;
+
+        margin: 10px 10px 10px 0;
+        width: 10px;
+        height: 10px;
+        border-width: 5px;
+        border-style: solid;
+      }
+      ul {
+        width: 500px;
+        margin: 10px auto;
+      }
+      #red {
+        border-color: red;
+        background-color: red;
+      }
+      #blue {
+        border-color: blue;
+        background-color: blue;
+      }
+      #yellow {
+        border-color: yellow;
+        background-color: yellow;
+      }
+      li.current {
+        background-color: #fff !important;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #tb {
+        width: 500px;
+        height: 25px;
+        margin: 20px auto;
+        clear: both;
+        border-collapse: collapse;
+      }
+      th {
+        border: 1px red solid;
+        font-size: 11px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body id="bgc">
+    <ul id="change">
+      <li id="red" title="红色"></li>
+      <li id="blue" name="current" title="蓝色"></li>
+      <li id="yellow" title="黄色"></li>
+    </ul>
+    <table id="tb">
+      <tr>
+        <th>
+          <a href="#">新闻</a>
+        </th>
+        <th>
+          <a href="#">娱乐</a>
+        </th>
+        <th>
+          <a href="#">体育</a>
+        </th>
+        <th>
+          <a href="#">电影</a>
+        </th>
+        <th>
+          <a href="#">电视</a>
+        </th>
+      </tr>
+    </table>
+    <script>
+      function changeBac(el, attr, value) {
+        el.style[attr] = value;
+      }
+      window.onload = function () {
+        var li = document.getElementsByTagName("li");
+        var bgc = document.getElementById("bgc");
+        var tb = document.getElementById("tb");
+        var oconAtt = ["background"];
+        var obgcbg = ["#39f", "#f00", "#ccc"];
+        var otbbg = ["red", "blue", "yellow"];
+        for (let i = 0; i < li.length; i++) {
+          li[i].index = i;
+          li[i].onclick = function () {
+            for (var x in li) li[x].className = "";
+            this.className = "current";
+            if (this.index == li.length - 1) {
+              changeBac(bgc, oconAtt[0], obgcbg[2]);
+              changeBac(tb, oconAtt[0], otbbg[2]);
+            }else {
+                changeBac(bgc, oconAtt[0], obgcbg[this.index]);
+              changeBac(tb, oconAtt[0], otbbg[this.index]);
+            }
+          };
+        }
+      };
+    </script>
+  </body>
+</html>
