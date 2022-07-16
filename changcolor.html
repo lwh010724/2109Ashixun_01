@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 800px;
+        margin: 10px auto;
+      }
+      input {
+        display: block;
+      }
+      ul li {
+        margin-top: 10px;
+        background-color: #39f;
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <input type="button" value="点击div变红" id="btn" />
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <script>
+      window.onload = function () {
+        var li = document.getElementsByTagName("li");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+          for (let i = 0; i < li.length; i++) {
+            li[i].style.backgroundColor = "red";
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
